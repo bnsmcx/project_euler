@@ -1,4 +1,4 @@
-# finding the largest 
+# Find the largest palindrome made from the product of two 3-digit numbers
 
 def reverse(num):
     return(int(str(num)[::-1]))

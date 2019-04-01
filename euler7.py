@@ -1,3 +1,5 @@
+# ~ What is the 10 001st prime number
+
 from sympy import isprime
 
 counter = 0
