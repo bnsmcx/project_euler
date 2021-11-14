@@ -1,28 +1,10 @@
+#! /usr/bin/env python3
 # finding the sum of all even fibonacci numbers below 4 million
 
-fib_numbers = [2, 3]
-even_fib = []
-sum = 0
+sequence = [1, 2]
 
-while fib_numbers[-1] < 4000000:
-    number = fib_numbers[-1] + fib_numbers[-2]
-    if number < 4000000:
-        fib_numbers.append(number)
-    elif number > 4000000:
-        break
-    else:
-        continue
-        
-for n in fib_numbers:
-    if n % 2 == 0:
-        even_fib.append(n)
-    else:
-        continue
+while sequence[-1] < 4_000_000:
+    sequence.append(sequence[-1] + sequence[-2])
 
-print(even_fib)
-        
-for n in even_fib:
-    sum += n
-    
-print(sum)
-
+even_numbers = [n for n in sequence if n % 2 == 0]
+print(sum(even_numbers))
