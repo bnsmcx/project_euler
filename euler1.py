@@ -1,17 +1,11 @@
-# finding the sum of all numbers divisivle by 3 or 5 between 1 and 1000
+#! /usr/bin/env python3
+# Find the sum of all the multiples of 3 or 5 below 1000.
 
-naturals = []
-sum = 0
+sum_of_multiples = 0
+for number in range(1, 1000):
+    print(number)
+    if number % 3 == 0 or number % 5 == 0:
+        sum_of_multiples += number
 
-for n in range(1,1000):
-    if n%3 == 0:
-        naturals.append(n)
-    elif n%5 == 0:
-        naturals.append(n)
-    else:
-        continue
-        
-for n in naturals:    
-    sum += n
-    
-print(sum)
+print(sum_of_multiples)
+
