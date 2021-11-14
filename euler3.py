@@ -1,26 +1,32 @@
-# finding the largest prime factor of a given number
+#! /usr/bin/env python3
+# What is the largest prime factor of the number 600851475143 ?
 
-def is_prime(number):
-    if number <= 2:
-        return(True)
-    else:
-        for n in range(2, number):
-            if number % n == 0:
-                return(False)
-        return(True)
-
-primes = []
-
-for i in range(3, 776001, 2): 
-	if is_prime(i):
-		primes.append(i)
-
-test_number = 600851475143
-
-for n in reversed(primes):
-	if test_number % n == 0:
-		print(n)
-		break
+def is_prime(number: int) -> bool:
+    """tell me if a number is prime or not"""
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+    return True
 
 
+def decompose(number: int) -> (int, int):
+    """return the first prime factor and its counterpart"""
+    for i in range(2, number):
+        if is_prime(i) and number % i == 0:
+            return i, int(number / i)
+            
+
+if __name__ == '__main__':
+    factors = [600851475143]
+    prime_factors = []
+
+    while factors:
+        factor = factors.pop()
+        if is_prime(factor):
+            prime_factors.append(factor)
+        else:
+            for i in decompose(factor):
+                factors.append(i)
+
+    print(sorted(prime_factors)[-1])
 
